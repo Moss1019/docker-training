@@ -8,5 +8,3 @@ make
 cd ..
 
 docker build -t file-reader .
-
-docker run --rm -ti file-reader

@@ -8,5 +8,3 @@ make
 cd ..
 
 docker build -t file-writer .
-
-docker run --rm -ti file-writer
