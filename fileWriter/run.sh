@@ -1,1 +1,1 @@
-docker run --rm -ti file-writer
+docker run --rm -ti file-writer 

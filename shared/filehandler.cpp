@@ -2,6 +2,7 @@
 #include "filehandler.h"
 
 #include <iostream>
+#include <sstream>
 
 FileHandler::FileHandler(const std::string &fileName, std::fstream::openmode openMode)
 {
@@ -15,6 +16,7 @@ FileHandler::~FileHandler()
     if(m_isOpen)
     {
         m_fileStream->close();
+        std::cout << "Closing\n";
     }
     delete m_fileStream;
 }
@@ -23,9 +25,13 @@ std::string FileHandler::readFile()
 {
     if(m_isOpen)
     {
-        std::string content;
-        (*m_fileStream) >> content;
-        return content;
+        std::stringstream content;
+        std::string tmp;
+        while((*m_fileStream) >> tmp) 
+        {
+            content << tmp << " ";
+        }
+        return content.str();
     }
     return "";
 }
